@@ -1,8 +1,7 @@
 ;; Remus Lazar's Emacs Setup
 ;; =========================
 
-;; do package-install {jade,stylus,php}-mode, smart-tabs-mode
-;;
+;; see README.md
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
