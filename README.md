@@ -30,3 +30,4 @@ References
 
 1. [http://www.emacswiki.org/SmartTabs](Emacs and Smart Tabs)
 2. [http://melpa.milkbox.net/](MELPA : Milkypostman’s Emacs Lisp Package Archive)
+3. [http://www.philnewton.net/guides/emacs-as-a-php-editor/](Emacs as an PHP Editor)
