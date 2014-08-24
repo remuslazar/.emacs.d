@@ -18,12 +18,17 @@ cd $HOME
 git clone http://github.com/remuslazar/.emacs.d.git
 ```
 
-Then run emacs and install the needed packages from MELPA:
+Then run emacs, the missing packages from MELPA being automagically
+installed on first run:
 
 * jade-mode
 * stylus-mode
 * php-mode
 * smart-tabs-mode
+* auto-complete
+* expand-region
+* web-mode
+* autopair
 
 References
 ----------

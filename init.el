@@ -39,6 +39,18 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
+;; my package list (autoinstall)
+(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair))
+
+;; fetch the list of packages available
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (require 'stylus-mode)
 (require 'jade-mode)
 (add-to-list 'auto-mode-alist '("\\.styl$" . stylus-mode))
@@ -84,3 +96,6 @@
                         ( empty trailing )))
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
