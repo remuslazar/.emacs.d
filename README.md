@@ -5,8 +5,8 @@ This is my Emacs Setup for the various programming languages I'm
 working with. My preferences do differ according to the specific
 language (e.g. the indenting/tab width for HTML-Files is only 2 char)
 
-Currently I'm using TABs only for PHP, HTML and TS (TypoScript) files.
-In general I do prefer plain spaces over TABs for indending.
+Currently I'm using TABs only for PHP and TS (TypoScript) files.  In
+general I do prefer plain spaces over TABs for indending :-)
 
 Setup
 -----
@@ -21,6 +21,7 @@ git clone http://github.com/remuslazar/.emacs.d.git
 Then run emacs, the missing packages from MELPA being automagically
 installed on first run:
 
+* markdown-mode
 * jade-mode
 * stylus-mode
 * php-mode
