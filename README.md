@@ -6,7 +6,7 @@ working with. My preferences do differ according to the specific
 language (e.g. the indenting/tab width for HTML-Files is only 2 char)
 
 Currently I'm using TABs only for PHP and TS (TypoScript) files.  In
-general I do prefer plain spaces over TABs for indending :-)
+general I do prefer plain spaces over TABs for indenting :-)
 
 Setup
 -----
