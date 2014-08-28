@@ -123,6 +123,12 @@
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
 
+;; CSS tab-width 4, indend with TABs
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode t)
+            (setq tab-width 4)))
+
 ;; Auto cleanup all the whitespace before save.
 ;; Cleanup only the trailing spaces, dont convert
 ;; spaces to tabs and vice-versa
