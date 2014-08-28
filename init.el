@@ -101,6 +101,10 @@
 ;; TYPO3 TypoScript, do use TABs, TAB-width is 4
 (require 'ts-mode)
 (add-to-list 'auto-mode-alist '("\\.ts$" . ts-mode))
+;; add TS-Mode for text-files if they are inside a `Configuration`
+;; directory
+(add-to-list 'auto-mode-alist '("setup\\.txt$" . ts-mode))
+(add-to-list 'auto-mode-alist '("constants\\.txt$" . ts-mode))
 (add-hook 'ts-mode-hook
           (lambda ()
             (setq indent-tabs-mode t)
@@ -109,7 +113,6 @@
 ;; C, PHP, indent with tabs, TAB width is 4
 (add-hook 'c-mode-hook
           (lambda ()
-            (flyspell-prog-mode)
             (setq indent-tabs-mode t)
             (setq tab-width 4)))
 
