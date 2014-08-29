@@ -64,7 +64,7 @@
 (package-initialize)
 
 ;; my package list (autoinstall)
-(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode))
+(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode json-mode))
 
 ;; fetch the list of packages available
 (unless package-archive-contents
