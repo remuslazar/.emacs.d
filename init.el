@@ -65,7 +65,7 @@
 
 ;; my package list (autoinstall)
 (require 'cl)
-(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode json-mode))
+(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode json-mode js3-mode))
 
 ;; fetch the list of packages available
 (unless package-archive-contents
@@ -123,6 +123,12 @@
 
 ;; HTML tab-width 2, indend with spaces
 (add-hook 'html-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 2)))
+
+;; js3-mode
+(add-hook 'js3-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
