@@ -117,8 +117,14 @@
             (setq indent-tabs-mode t)
             (setq tab-width 4)))
 
+;;(add-hook 'python-mode-hook guess-style-guess-tabs-mode)
+(add-hook 'python-mode-hook
+          (lambda ()
+            (when indent-tabs-mode
+              (guess-style-guess-tab-width))))
+
 ;; Use smart-tabs for this major modes (nxml for PHP-Mode)
-(smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
+(smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl
                       'ruby 'nxml)
 
 ;; HTML tab-width 2, indend with spaces
@@ -127,8 +133,8 @@
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
 
-;; js3-mode
-(add-hook 'js3-mode-hook
+;; for xml files use the same settings
+(add-hook 'nxml-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
