@@ -108,6 +108,7 @@
 (add-to-list 'auto-mode-alist '("constants\\.txt$" . ts-mode))
 (add-hook 'ts-mode-hook
           (lambda ()
+            (setq ts-block-indentation 4)
             (setq indent-tabs-mode t)
             (setq tab-width 4)))
 
