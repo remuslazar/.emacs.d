@@ -149,3 +149,4 @@
 
 (require 'autopair)
 ;; (autopair-global-mode) ;; enable autopair in all buffers
+(add-to-list 'auto-mode-alist '("\\.ino$" . c-mode))
