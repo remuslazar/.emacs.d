@@ -65,7 +65,7 @@
 
 ;; my package list (autoinstall)
 (require 'cl)
-(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode json-mode js3-mode))
+(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode json-mode js3-mode yaml-mode))
 
 ;; fetch the list of packages available
 (unless package-archive-contents
