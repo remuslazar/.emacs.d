@@ -65,7 +65,7 @@
 
 ;; my package list (autoinstall)
 (require 'cl)
-(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode json-mode js3-mode))
+(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode json-mode js3-mode yaml-mode))
 
 ;; fetch the list of packages available
 (unless package-archive-contents
@@ -102,12 +102,15 @@
 ;; TYPO3 TypoScript, do use TABs, TAB-width is 4
 (require 'ts-mode)
 (add-to-list 'auto-mode-alist '("\\.ts$" . ts-mode))
+;; use the TypoScript ts-mode for TypoScript2, as well
+(add-to-list 'auto-mode-alist '("\\.ts2$" . ts-mode))
 ;; add TS-Mode for text-files if they are inside a `Configuration`
 ;; directory
 (add-to-list 'auto-mode-alist '("setup\\.txt$" . ts-mode))
 (add-to-list 'auto-mode-alist '("constants\\.txt$" . ts-mode))
 (add-hook 'ts-mode-hook
           (lambda ()
+            (setq ts-block-indentation 4)
             (setq indent-tabs-mode t)
             (setq tab-width 4)))
 
@@ -117,8 +120,14 @@
             (setq indent-tabs-mode t)
             (setq tab-width 4)))
 
+;;(add-hook 'python-mode-hook guess-style-guess-tabs-mode)
+(add-hook 'python-mode-hook
+          (lambda ()
+            (when indent-tabs-mode
+              (guess-style-guess-tab-width))))
+
 ;; Use smart-tabs for this major modes (nxml for PHP-Mode)
-(smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
+(smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl
                       'ruby 'nxml)
 
 ;; HTML tab-width 2, indend with spaces
@@ -127,8 +136,8 @@
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
 
-;; js3-mode
-(add-hook 'js3-mode-hook
+;; for xml files use the same settings
+(add-hook 'nxml-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
