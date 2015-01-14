@@ -102,6 +102,8 @@
 ;; TYPO3 TypoScript, do use TABs, TAB-width is 4
 (require 'ts-mode)
 (add-to-list 'auto-mode-alist '("\\.ts$" . ts-mode))
+;; use the TypoScript ts-mode for TypoScript2, as well
+(add-to-list 'auto-mode-alist '("\\.ts2$" . ts-mode))
 ;; add TS-Mode for text-files if they are inside a `Configuration`
 ;; directory
 (add-to-list 'auto-mode-alist '("setup\\.txt$" . ts-mode))
