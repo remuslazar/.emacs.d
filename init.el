@@ -114,11 +114,15 @@
             (setq indent-tabs-mode t)
             (setq tab-width 4)))
 
-;; C, PHP, indent with tabs, TAB width is 4
+;; C, PHP TAB width is 4
 (add-hook 'c-mode-hook
           (lambda ()
-            (setq indent-tabs-mode t)
             (setq tab-width 4)))
+
+;; PHP indent with tabs,
+(add-hook 'php-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode t)))
 
 ;;(add-hook 'python-mode-hook guess-style-guess-tabs-mode)
 (add-hook 'python-mode-hook
