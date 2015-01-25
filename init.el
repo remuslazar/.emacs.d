@@ -81,9 +81,10 @@
 (add-to-list 'auto-mode-alist '("\\.styl$" . stylus-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
-;; Don't use TABs by default
-;; Do use TABs only for some specific modes
-(setq-default indent-tabs-mode nil)
+;; Default settings: indend with TABs, offset default 4 chars
+(setq-default c-basic-offset 4
+              tab-width 4
+              indent-tabs-mode t)
 
 ;; JavaScript: indend-level is 2, use spaces, no TABs
 (setq js-indent-level 2)
@@ -95,8 +96,6 @@
           (lambda ()
             (flyspell-mode)
             (auto-fill-mode)
-            (setq indent-tabs-mode t)
-            (setq tab-width 4)
             ))
 
 ;; TYPO3 TypoScript, do use TABs, TAB-width is 4
@@ -110,19 +109,9 @@
 (add-to-list 'auto-mode-alist '("constants\\.txt$" . ts-mode))
 (add-hook 'ts-mode-hook
           (lambda ()
-            (setq ts-block-indentation 4)
-            (setq indent-tabs-mode t)
-            (setq tab-width 4)))
+            (setq ts-block-indentation 4)))
 
-;; C, PHP TAB width is 4
-(add-hook 'c-mode-hook
-          (lambda ()
-            (setq tab-width 4)))
-
-;; PHP indent with tabs,
-(add-hook 'php-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode t)))
+;; PHP use defaults
 
 ;;(add-hook 'python-mode-hook guess-style-guess-tabs-mode)
 (add-hook 'python-mode-hook
@@ -146,11 +135,10 @@
             (setq indent-tabs-mode nil)
             (setq tab-width 2)))
 
-;; CSS tab-width 4, indend with TABs
-(add-hook 'css-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode t)
-            (setq tab-width 4)))
+;; CSS tab-width 4, indend with TABs (default)
+;; (add-hook 'css-mode-hook
+;;           (lambda ()
+;;             (setq tab-width 4)))
 
 ;; Auto cleanup all the whitespace before save.
 ;; Cleanup only the trailing spaces, dont convert
