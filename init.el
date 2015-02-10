@@ -140,6 +140,11 @@
 ;;           (lambda ()
 ;;             (setq tab-width 4)))
 
+;; c++ mode indending
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (setq tab-width 4)))
+
 ;; Auto cleanup all the whitespace before save.
 ;; Cleanup only the trailing spaces, dont convert
 ;; spaces to tabs and vice-versa
