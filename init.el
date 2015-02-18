@@ -81,6 +81,9 @@
 (add-to-list 'auto-mode-alist '("\\.styl$" . stylus-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
+;; default width of the fill-mode
+(setq-default fill-column 80)
+
 ;; Default settings: indend with TABs, offset default 4 chars
 (setq-default c-basic-offset 4
               tab-width 4
