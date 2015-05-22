@@ -84,12 +84,12 @@
 ;; default width of the fill-mode
 (setq-default fill-column 80)
 
-;; Default settings: indend with TABs, offset default 4 chars
+;; Default settings: indend with spaces, offset default 4 chars
 (setq-default c-basic-offset 4
               tab-width 4
-              indent-tabs-mode t)
+              indent-tabs-mode nil)
 
-;; JavaScript: indend-level is 2, use spaces, no TABs
+;; JavaScript: indend-level is 2
 (setq js-indent-level 2)
 
 ;; Markdown mode, use auto-fill and flyspell
@@ -112,6 +112,7 @@
 (add-to-list 'auto-mode-alist '("constants\\.txt$" . ts-mode))
 (add-hook 'ts-mode-hook
           (lambda ()
+			(setq indent-tabs-mode t)
             (setq ts-block-indentation 4)))
 
 ;; PHP use defaults
