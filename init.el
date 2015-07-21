@@ -8,10 +8,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ede-project-directories (quote ("/Users/lazarrs/Developer/Hardware/ArduinoTest")))
  '(inhibit-startup-screen t)
+ '(ispell-dictionary "english")
  '(nxml-slash-auto-complete-flag t)
- '(tool-bar-mode nil)
- '(ispell-dictionary "english"))
+ '(tool-bar-mode nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -52,7 +53,6 @@
   (setq mac-command-modifier 'meta)
   (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
   )
-(iswitchb-mode 1)
 
 ;; Some libs not available on MELPA (e.g. ts-mode)
 (add-to-list 'load-path "~/.emacs.d/vendor")
@@ -65,7 +65,7 @@
 
 ;; my package list (autoinstall)
 (require 'cl)
-(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode json-mode js3-mode yaml-mode iedit))
+(setq package-list '(jade-mode stylus-mode php-mode smart-tabs-mode auto-complete expand-region web-mode autopair markdown-mode json-mode js3-mode yaml-mode iedit tern tern-auto-complete))
 
 ;; fetch the list of packages available
 (unless package-archive-contents
@@ -90,7 +90,21 @@
               indent-tabs-mode t)
 
 ;; JavaScript: indend-level is 2, use spaces, no TABs
+;; HTML tab-width 2, indend with spaces
 (setq js-indent-level 2)
+(add-hook 'js-mode-hook
+          (lambda ()
+			(tern-mode t)
+            (setq indent-tabs-mode nil)))
+
+(add-hook 'json-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
+
+(eval-after-load 'tern
+  '(progn
+	 (require 'tern-auto-complete)
+	 (tern-ac-setup)))
 
 ;; Markdown mode, use auto-fill and flyspell
 (require 'markdown-mode)
@@ -159,3 +173,18 @@
 (require 'autopair)
 ;; (autopair-global-mode) ;; enable autopair in all buffers
 (add-to-list 'auto-mode-alist '("\\.ino$" . c-mode))
+
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode t)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode t)
+;;(add-to-list 'semantic-default-submodes 'global-cedet-m3-minor-mode t)
+
+;; Enable Semantic
+(semantic-mode 1)
+
+;; Enable EDE (Project Management) features
+(global-ede-mode 1)
+
+(defun my-semantic-hook ()
+  (semantic-add-system-include "~/.arduino/lib/arduino" 'c-mode)
+  (semantic-add-system-include "~/.arduino/lib/leonardo" 'c-mode))
+(add-hook 'semantic-init-hooks 'my-semantic-hook)
