@@ -96,6 +96,9 @@
 			(tern-mode t)
             (setq indent-tabs-mode nil)))
 
+(add-hook 'js3-mode-hook
+          (lambda () (tern-mode t)))
+
 (add-hook 'json-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)))
