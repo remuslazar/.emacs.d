@@ -207,5 +207,5 @@
   (forward-line -1)
   (indent-according-to-mode))
 
-(global-set-key (kbd "M-{") 'move-line-up)
-(global-set-key (kbd "M-}") 'move-line-down)
+(global-set-key (kbd "M-“") 'move-line-up)
+(global-set-key (kbd "M-‘") 'move-line-down)
